@@ -39,7 +39,7 @@ async function main() {
 
    // Adding the FacetB to the diamond contract which will be our our second iteration..
 
-  const tx2=await diamond.connect(accounts[0]).diamondCut({facetAddress:facetb.target,functionSelectors:["0x27ee58a6"]});
+  const tx2=await diamond.connect(accounts[0]).diamondCut({facetAddress:facetb.target,functionSelectors:["0x27ee58a6","0xd4a2498d","0x3bc5de30"]});
 
   await tx2.wait();
  
@@ -64,11 +64,15 @@ async function main() {
   const num=await proxyB.getNum();
   console.log(num);
 
+  const addData=await proxyB.connect(accounts[0]).addData("Raj");
+
+  await addData.wait()
+
+  const data=await proxyB.getData();
+  console.log(data);  
+
 
 }
-
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;

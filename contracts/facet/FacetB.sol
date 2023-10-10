@@ -13,4 +13,12 @@ contract FacetB {
     function getNum() public view returns(uint256){
         return LibFacetB.getStorage().b;
     }
+
+    function addData(string calldata _data) external returns(bool){
+        return LibFacetB.addData(_data);
+    }
+
+    function getData() public view returns(string memory){
+        return LibFacetB.getStorage().data;
+    }
 }

@@ -6,6 +6,7 @@ library LibFacetB {
 
     struct Storage {
         uint256 b;
+        string data;
     }
 
     function getStorage() internal pure returns (Storage storage ds) {
@@ -20,6 +21,12 @@ library LibFacetB {
         unchecked{
             ds.b-=_num;
         }
+        return true;
+    }
+
+    function addData(string calldata _data) internal returns(bool){
+        Storage storage ds=getStorage();
+        ds.data=_data;
         return true;
     }
 }
