@@ -2,7 +2,7 @@
 pragma solidity =0.8.9;
 
 library LibFacetB {
-    bytes32 constant STORAGE_POSITION = keccak256("facet.b.diamond.storage");
+    bytes32 constant STORAGE_POSITION = keccak256("facet.a.diamond.storage");
 
     struct Storage {
         uint256 b;

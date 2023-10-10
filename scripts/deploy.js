@@ -53,6 +53,17 @@ async function main() {
 
   await proxyB.waitForDeployment();
 
+  const addnum=await proxyA.connect(accounts[0]).add(50);
+
+  await addnum.wait();
+
+  const subnum=await proxyB.connect(accounts[0]).sub(2);
+
+  await subnum.wait();
+
+  const num=await proxyB.getNum();
+  console.log(num);
+
 
 }
 
